@@ -1,0 +1,751 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Montserrat', Arial, sans-serif;
+  background: #0d0d0d;
+  color: #fff;
+  line-height: 1.6;
+  position: relative;
+}
+/* Remove any previous body background styles and add new grid */
+body {
+  background: #0d0d0d;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(255, 253, 253, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 35px 35px;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Make hero section background slightly transparent to show grid */
+.hero {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.85) 20%, rgba(61, 15, 100, 0.85) 100%) !important;
+}
+
+/* Ensure content sections have transparent backgrounds */
+.about, .services, .portfolio, .contact {
+  background: transparent !important;
+  position: relative;
+}
+
+/* Add a dark overlay to maintain readability */
+.about::before, .services::before, .portfolio::before, .contact::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(13, 13, 13, 0.85);
+  z-index: -1;
+}
+
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Navbar */
+.navbar {
+  width: 100%;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(13, 13, 13, 0.9);
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  transition: background 0.3s;
+}
+.navbar.scrolled {
+  background: rgba(13, 13, 13, 0.95);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #fff;
+}
+.logo span {
+  color: #9b5de5; /* accent color */
+}
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+.nav-links a {
+  text-decoration: none;
+  color: #ccc;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+.nav-links a:hover {
+  color: #9b5de5;
+}
+.talk-btn {
+  border-bottom: 2px solid #9b5de5;
+  padding-bottom: 2px;
+}
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #fff;
+}
+
+/* Hero */
+.hero {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 2rem;
+  background: linear-gradient(135deg, #000000 40%, #3d0f64 100%);
+}
+.hero-text h1 {
+  font-size: 1.2rem;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+.hero-text h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  line-height: 1.3;
+  margin-bottom: 1rem;
+}
+.hero-text p {
+  font-size: 1.1rem;
+  color: #bbb;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.hero-text .intro {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #ccc;
+  margin-bottom: 1rem;
+}
+.hero-text .name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3rem;
+  font-weight: 400;
+  letter-spacing: 2px;
+  color: #9b5de5;
+  text-transform: capitalize;
+  border-right: 2px solid #9b5de5;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: blinkCursor 0.8s infinite;
+}
+@keyframes blinkCursor {
+  0%, 50% { border-color: #9b5de5; }
+  51%, 100% { border-color: transparent; }
+}
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background: #9b5de5;
+  color: #fff;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+.btn:hover {
+  background: #7a3fc4;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(155, 93, 229, 0.4);
+}
+
+/* Sections Common Styling */
+section {
+  padding: 5rem 2rem;
+}
+.section-title {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.section-title h2 {
+  font-size: 2.5rem;
+  color: #9b5de5;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+.section-title h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: #9b5de5;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* About Section */
+.about {
+  background: #0f0f0f;
+}
+.about-content {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+}
+.about-text {
+  flex: 1;
+}
+.about-text h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: #fff;
+}
+.about-text p {
+  margin-bottom: 1.5rem;
+  color: #bbb;
+}
+.about-image {
+  flex: 1;
+  text-align: center;
+}
+.about-image img {
+  max-width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(155, 93, 229, 0.2);
+}
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.skill {
+  background: rgba(155, 93, 229, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  color: #9b5de5;
+  font-size: 0.9rem;
+}
+/* Skills hover effects */
+.skill {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.skill::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(155, 93, 229, 0.2), transparent);
+  transition: all 0.6s ease;
+  z-index: -1;
+}
+
+.skill:hover::before {
+  left: 100%;
+}
+
+.skill:hover {
+  background: rgba(155, 93, 229, 0.2);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(155, 93, 229, 0.3);
+  color: #fff;
+}
+
+/* Pulse animation on hover */
+@keyframes skillPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(155, 93, 229, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(155, 93, 229, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(155, 93, 229, 0);
+  }
+}
+
+.skill:hover {
+  animation: skillPulse 1.5s infinite;
+}
+
+/* Optional: Different colors for different skills */
+.skill:nth-child(2n):hover {
+  background: rgba(113, 8, 249, 0.2);
+  box-shadow: 0 5px 15px rgba(124, 26, 244, 0.3);
+}
+
+.skill:nth-child(3n):hover {
+  background: rgba(203, 37, 249, 0.2);
+  box-shadow: 0 5px 15px rgba(201, 53, 250, 0.3);
+}
+/* Services Section */
+.services {
+  background: #0d0d0d;
+}
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+.service-card {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s ease;
+
+  background: #1a1a1a;
+  padding: 2rem;
+  border-radius: 10px;
+
+}
+.service-card > * {
+  transition: all 0.5s ease;
+}
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(155, 93, 229, 0.2), transparent);
+  transition: all 0.6s ease;
+}
+.service-card:hover::before {
+  left: 100%;
+}
+.service-card:hover {
+   background: rgba(155, 93, 229, 0.1);
+  box-shadow: 0 10px 25px rgba(155, 93, 229, 0.2);
+  transform: translateY(-10px);
+}
+
+.service-card:hover .service-icon {
+  background: rgba(155, 93, 229, 0.2);
+  transform: scale(1.05);
+}
+.service-icon {
+  font-size: 2.5rem;
+  color: #9b5de5;
+  margin-bottom: 1rem;
+  width: 0px;
+
+}
+.service-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+.service-card:hover h3 {
+  color: #9b5de5;
+}
+
+.service-card p {
+  color: #bbb;
+}
+
+/* Portfolio Section */
+.portfolio {
+  background: #0f0f0f;
+}
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+.portfolio-item {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  height: 250px;
+}
+.portfolio-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+.portfolio-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(13, 13, 13, 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.5s;
+  padding: 2rem;
+}
+.portfolio-item:hover .portfolio-overlay {
+  opacity: 1;
+}
+.portfolio-item:hover .portfolio-img {
+  transform: scale(1.1);
+}
+.portfolio-overlay h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+.portfolio-overlay p {
+  color: #bbb;
+  text-align: center;
+}
+.portfolio-buttons {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+
+/* Contact Section */
+.contact {
+  background: #0d0d0d;
+}
+.contact-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+}
+.contact-info h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #fff;
+}
+.contact-details {
+  margin-bottom: 2rem;
+}
+.contact-details p {
+  margin-bottom: 0.5rem;
+  color: #bbb;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.social-links {
+  display: flex;
+  gap: 1rem;
+}
+.social-links a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background: #1a1a1a;
+  color: #9b5de5;
+  border-radius: 50%;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+.social-links a:hover {
+  background: #9b5de5;
+  color: #fff;
+  transform: translateY(-3px);
+}
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 5px;
+  color: #fff;
+  font-family: inherit;
+}
+.contact-form textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+.contact-form button {
+  cursor: pointer;
+  border: none;
+}
+
+/* Footer */
+.footer {
+  background: #0a0a0a;
+  padding: 2rem;
+  text-align: center;
+}
+.footer p {
+  color: #bbb;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .about-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .skills {
+    justify-content: center;
+  }
+}
+@media (max-width: 768px) {
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: 70%;
+    background: #111;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    transition: right 0.3s;
+    z-index: 999;
+  }
+  .nav-links.active {
+    right: 0;
+  }
+  .menu-toggle {
+    display: block;
+    z-index: 1000;
+  }
+  .hero-text h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      letter-spacing: 3px;
+      color: #ccc;
+      text-transform: uppercase;
+      margin-top: 1rem;
+      /* Remove any previous conflicting properties */
+      font-size: 1.5rem !important;
+      font-weight: 400 !important;
+      text-transform: uppercase !important;
+      letter-spacing: 3px !important;
+  }
+  .hero-text .intro {
+    font-size: 1.5rem;
+  }
+  .hero-text .name {
+    font-size: 2rem;
+  }
+  .section-title h2 {
+    font-size: 2rem;
+  }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap');
+/* NK Loading overlay styles */
+#loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(13, 13, 13, 0.98);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.5s ease;
+}
+
+#loading-overlay.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.nk-loader {
+  text-align: center;
+}
+
+.nk-icon {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 4rem;
+  font-weight: 700;
+  color: #9b5de5;
+  margin-bottom: 30px;
+  position: relative;
+  display: inline-block;
+}
+
+/* Option 1: Bounce Animation */
+@keyframes nk-bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+}
+
+.nk-bounce {
+  animation: nk-bounce 2s infinite;
+}
+
+/* Option 2: Flip Animation */
+@keyframes nk-flip {
+  0% {
+    transform: perspective(400px) rotateY(0);
+  }
+  50% {
+    transform: perspective(400px) rotateY(180deg);
+  }
+  100% {
+    transform: perspective(400px) rotateY(360deg);
+  }
+}
+
+.nk-flip {
+  animation: nk-flip 3s infinite;
+  backface-visibility: visible;
+}
+
+/* Option 3: Glitch Effect */
+@keyframes nk-glitch {
+  0% {
+    text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
+                -0.05em -0.025em 0 rgba(0, 255, 0, 0.75),
+                -0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+  14% {
+    text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
+                -0.05em -0.025em 0 rgba(0, 255, 0, 0.75),
+                -0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+  15% {
+    text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75),
+                0.025em 0.025em 0 rgba(0, 255, 0, 0.75),
+                -0.05em -0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+  49% {
+    text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75),
+                0.025em 0.025em 0 rgba(0, 255, 0, 0.75),
+                -0.05em -0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+  50% {
+    text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, 0.75),
+                0.05em 0 0 rgba(0, 255, 0, 0.75),
+                0 -0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+  99% {
+    text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, 0.75),
+                0.05em 0 0 rgba(0, 255, 0, 0.75),
+                0 -0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+  100% {
+    text-shadow: -0.025em 0 0 rgba(255, 0, 0, 0.75),
+                -0.025em -0.025em 0 rgba(0, 255, 0, 0.75),
+                -0.025em -0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+}
+
+.nk-glitch {
+  animation: nk-glitch 2s infinite;
+  position: relative;
+}
+
+/* Option 4: Neon Flicker */
+@keyframes nk-flicker {
+  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+    text-shadow: 0 0 5px #9b5de5,
+                 0 0 10px #9b5de5,
+                 0 0 15px #9b5de5,
+                 0 0 20px #9b5de5;
+  }
+  20%, 24%, 55% {
+    text-shadow: none;
+  }
+}
+
+.nk-flicker {
+  animation: nk-flicker 3s infinite alternate;
+}
+
+/* Option 5: Wave Animation */
+.nk-wave {
+  display: inline-block;
+}
+
+.nk-wave span {
+  display: inline-block;
+  animation: nk-wave-animation 1.5s infinite;
+}
+
+.nk-wave span:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+@keyframes nk-wave-animation {
+  0%, 40%, 100% {
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Progress bar */
+.nk-loader-bar {
+  width: 200px;
+  height: 4px;
+  background: rgba(155, 93, 229, 0.2);
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.nk-loader-progress {
+  height: 100%;
+  width: 0%;
+  background: #9b5de5;
+  border-radius: 4px;
+  animation: loading-progress 1.5s ease-in-out infinite;
+}
+
+@keyframes loading-progress {
+  0% {
+    width: 0%;
+    transform: translateX(0);
+  }
+  50% {
+    width: 70%;
+  }
+  100% {
+    width: 100%;
+    transform: translateX(200px);
+  }
+}
