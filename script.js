@@ -89,8 +89,8 @@ window.addEventListener('load', function() {
   // nkIcon.classList.add('nk-bounce');
   // nkIcon.classList.add('nk-flip');
   // nkIcon.classList.add('nk-glitch');
-  // nkIcon.classList.add('nk-flicker');
-  nkIcon.classList.add('nk-wave');
+   nkIcon.classList.add('nk-flicker');
+  //nkIcon.classList.add('nk-wave');
   
   // For wave animation, use this HTML structure instead:
   // <div class="nk-icon nk-wave"><span>N</span><span>K</span></div>
@@ -112,4 +112,5 @@ window.addEventListener('load', function() {
       }, 100);
     }
   }, 100);
+
 });
