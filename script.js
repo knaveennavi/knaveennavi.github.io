@@ -86,10 +86,10 @@ window.addEventListener('load', function() {
   const nkIcon = document.querySelector('.nk-icon');
   
   // Choose one animation style:
-  // nkIcon.classList.add('nk-bounce');
+   nkIcon.classList.add('nk-bounce');
   // nkIcon.classList.add('nk-flip');
   // nkIcon.classList.add('nk-glitch');
-   nkIcon.classList.add('nk-flicker');
+   //nkIcon.classList.add('nk-flicker');
   //nkIcon.classList.add('nk-wave');
   
   // For wave animation, use this HTML structure instead:
@@ -114,3 +114,4 @@ window.addEventListener('load', function() {
   }, 100);
 
 });
+
