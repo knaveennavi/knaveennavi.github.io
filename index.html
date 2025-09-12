@@ -185,20 +185,25 @@
             <p><i class="fas fa-map-marker-alt"></i> Chennai, India</p>
           </div>
           <div class="social-links">
-            <a href="https://www.linkedin.com/in/knaveennavi/"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#"><i class="fab fa-github"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/knaveennavi/" class="tooltip"><i class="fab fa-linkedin-in"></i>
+            <span class="tooltip-text">LinkedIn</span></a>
+            <a href="https://github.com/knaveennavi" class="tooltip"><i class="fab fa-github"></i>
+            <span class="tooltip-text">GitHub</span></a>
+            <a href="https://drive.google.com/file/d/1uvEVCJ3velHR_iPIWhGsLIASj-aa8b94/view?usp=sharing" class="tooltip"><i class="fas fa-file-alt"></i>
+              <span class="tooltip-text">Resume</span></a>
+            <a href="https://www.instagram.com/knaveennavi/" class="tooltip"><i class="fab fa-instagram"></i>
+            <span class="tooltip-text">Instagram</span></a>
           </div>
         </div>
         <div class="contact-form">
-          <form id="contactForm">
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <input type="text" placeholder="Subject" required>
-            <textarea placeholder="Your Message" required></textarea>
+          <form id="contactForm" action="https://formspree.io/f/mldwvrzb" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <input type="text" name="subject" placeholder="Subject" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
             <button type="submit" class="btn">Send Message</button>
           </form>
+          <div id="form-status" class="form-status"></div>
         </div>
       </div>
     </div>
@@ -213,6 +218,4 @@
 
   <script src="script.js"></script>
 </body>
-
 </html>
-
