@@ -51,11 +51,50 @@ function typeEffect() {
   }
 }
 
-// Form submission
-document.getElementById('contactForm').addEventListener('submit', function(e) {
+// Form submission with Formspree
+document.getElementById('contactForm').addEventListener('submit', async function(e) {
   e.preventDefault();
-  alert('Thank you for your message! I will get back to you soon.');
-  this.reset();
+  
+  const form = e.target;
+  const formData = new FormData(form);
+  const statusElement = document.getElementById('form-status');
+  
+  // Show sending status
+  statusElement.textContent = 'Sending your message...';
+  statusElement.className = 'form-status sending';
+  statusElement.style.display = 'block';
+  
+  try {
+    const response = await fetch(form.action, {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
+    
+    if (response.ok) {
+      statusElement.textContent = 'Thank you for your message! I will get back to you soon.';
+      statusElement.className = 'form-status success';
+      form.reset();
+    } else {
+      const errorData = await response.json();
+      if (errorData.errors) {
+        statusElement.textContent = errorData.errors.map(error => error.message).join(', ');
+      } else {
+        statusElement.textContent = 'Oops! There was a problem submitting your form. Please try again.';
+      }
+      statusElement.className = 'form-status error';
+    }
+  } catch (error) {
+    statusElement.textContent = 'Oops! There was a problem submitting your form. Please try again.';
+    statusElement.className = 'form-status error';
+  }
+  
+  // Hide status message after 5 seconds
+  setTimeout(() => {
+    statusElement.style.display = 'none';
+  }, 5000);
 });
 
 // Enhanced hover effect for service cards
@@ -79,6 +118,7 @@ document.addEventListener('DOMContentLoaded', function() {
 window.onload = function() {
   typeEffect();
 };
+
 // NK Loading functionality with different animations
 window.addEventListener('load', function() {
   const loadingOverlay = document.getElementById('loading-overlay');
@@ -86,11 +126,11 @@ window.addEventListener('load', function() {
   const nkIcon = document.querySelector('.nk-icon');
   
   // Choose one animation style:
-   nkIcon.classList.add('nk-bounce');
+  // nkIcon.classList.add('nk-bounce');
   // nkIcon.classList.add('nk-flip');
   // nkIcon.classList.add('nk-glitch');
-   //nkIcon.classList.add('nk-flicker');
-  //nkIcon.classList.add('nk-wave');
+  // nkIcon.classList.add('nk-flicker');
+  nkIcon.classList.add('nk-wave');
   
   // For wave animation, use this HTML structure instead:
   // <div class="nk-icon nk-wave"><span>N</span><span>K</span></div>
@@ -112,7 +152,4 @@ window.addEventListener('load', function() {
       }, 100);
     }
   }, 100);
-
 });
-
-
