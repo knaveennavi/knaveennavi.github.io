@@ -234,6 +234,8 @@ section {
   text-align: center;
 }
 .about-image img {
+  width: 400px; /* Adjust as needed */
+  height: auto; /* Maintain aspect ratio */
   max-width: 100%;
   border-radius: 10px;
   box-shadow: 0 5px 20px rgba(155, 93, 229, 0.2);
